@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Page pour les jeux -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainMath</title>
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <link rel="stylesheet" href="styles/style_partout.css"/>
+    <link rel="stylesheet" href="styles/style_jeux.css"/>
+    <!-- utiliser les mêmes formes que pour entrainement -->
+    <link rel="stylesheet" href="styles/style_entrainement.css"/>
+
+    <script src="scripts/generateur.js"></script>
+
+    <!-- récupération du mode, de la difficulte et le jeu -->
+    <script>
+        // récupération de la difficulte et le mode dans l'url
+        let adresse = (window.location.toString().split("?")[1]);
+        let difficulte = parseInt(adresse.split("&")[0].split("=")[1]);
+        let mode = parseInt(adresse.split("&")[1].split("=")[1]);
+        let jeu = parseInt(adresse.split("&")[2].split("=")[1]);
+
+        function couleur_cerveau() {
+            /*
+            Fonction qui en fonction de la difficulte va retrouner une couleur différente de cerveau
+            :return: None
+            */
+            if (difficulte === 1) {
+                // si la difficulte est en mode simple retroune une image de cerveau vert
+                return "images/cerveau_vert.png";
+            } else if (difficulte === 2) {
+                // si la difficulte est moyen retourner l'image de cerveau orange
+                return "images/cerveau_orange.png";
+            } else if (difficulte === 3) {
+                // si la difficule est en difficile retoruner l'image de cerveau rouge
+                return "images/cerveau_rouge.png";
+            } else {
+                // si il y a une erreur dans la difficuler renvoyer l'utilisateur sur la page d'acceuil
+                window.location.replace("index.html");
+            }
+            ;
+        };
+
+        function demarer_jeu() {
+            /*
+            Fonction pour démarer le jeu en fonction du mode de jeu
+            :return: None
+            */
+
+            // faire disparaitre le bouton demarer
+            document.querySelector("#demarer_bouton").style = "visibility: hidden;";
+
+
+            // si le jeu est en mode time attack ou en mode distance
+            if (jeu === 1) {
+                // mode time attack 
+                // faire apparaitre le temps restant
+                document.querySelector("#temps").style = "visibility: visible;";
+                // compte à rebours de 3 secondes
+                compte_rebours(difficulte, jeu)
+                // faire apparaitre l'interface de jeu
+                document.querySelector("#jeu_interface").style = "visibility: visible;";
+                // démarer le compte à rebours de 30 secondes avant la fin du jeu
+
+            } else {
+                // mode plus grande distance 
+                // démarer le jeu en mode distance
+                demarer_distance(difficulte, jeu);
+                // faire apparaitre l'interface de jeu
+                document.querySelector("#jeu_interface").style = "visibility: visible;";
+            }
+            ;
+        };
+
+    </script>
+
+</head>
+
+<body>
+<br>
+<a id="menu" href="index.html">Menu</a>
+<a id="changer_niv" href="difficulte.html?mode=2">Difficulté</a>
+<p id="jeu_titre">Jeux</p>
+
+<script>
+    // changer le titre de la fenetre en fonction du jeu selectioné
+    if (jeu === 1) {
+        document.querySelector("#jeu_titre").innerHTML = "Contre la montre";
+    } else {
+        document.querySelector("#jeu_titre").innerHTML = "Plus grande distance";
+    }
+    ;
+</script>
+
+<!-- Pour le jeu -->
+<!-- Fenetre principale-->
+
+<!-- Pour afficher le score -->
+<div id="fenetre_score" style="margin-top: -10px">
+    <div class="entete">
+        <img src="images/logo_title.png" class="titrelogo"/>
+
+        <img src="images/cerveau_vert.png" class="cerveau_image" id="cerveau2" style="margin-left: 925px"/>
+        <!-- Changer l'image de cerveau en fonction de la dddifficulte -->
+        <script>
+            // actualiser l'image de cerveau
+            document.querySelector("#cerveau2").src = (couleur_cerveau());
+        </script>
+    </div>
+
+    <!-- Pour afficher les différents résultats -->
+    <p class="text_score">Voici vos résultats : </p>
+
+    <p class="text_resultats" id="score_resultats">
+        RESULTATS
+
+    </p>
+
+    <br><br>
+    <!-- Bouton pour rejouer -->
+    <button class="rejouer" onclick="window.location.reload()">Rejouer</button>
+
+</div>
+
+<div id="fenetre" style="margin-top: -10px;">
+    <!-- l'entete qui contient le logo de brainMath, le titre entrainement et un cerveau de la couleur de la ddifficulte
+     -->
+
+    <div class="entete">
+        <img src="images/logo_title.png" class="titrelogo"/>
+
+        <img src="images/cerveau_vert.png" class="cerveau_image" id="cerveau1" style="margin-left: 925px"/>
+        <!-- Changer l'image de cerveau en fonction de la dddifficulte -->
+        <script>
+            // actualiser l'image de cerveau
+            document.querySelector("#cerveau1").src = (couleur_cerveau());
+        </script>
+    </div>
+
+    <div id="jeu">
+        <!-- Timer que si le jeu est en mode contre la montre -->
+        <div id="chrono">
+            <h2 id="temps">3</h2>
+        </div>
+
+        <!-- En foction du mode de jeu cacher ou faire apparaitre le timer -->
+        <script>
+            if (jeu === 1) {
+                document.querySelector("#chrono").style = "visibility: visible;";
+            } else {
+                document.querySelector("#chrono").style = "visibility: hidden;";
+            }
+            ;
+
+        </script>
+        <!-- Pour toutes les interations avec l'utilisateur -->
+        <div id="interface">
+
+            <!-- Le div qui contient à la fois le bouton pour démarer le timer et aussi là ou s'affiche les calcules -->
+
+            <!-- Bouton pour démarer  -->
+            <input type="button" id="demarer_bouton" value="Démarer" onclick="demarer_jeu()">
+
+            <div id="jeu_interface">
+
+                <!-- Le calcul sera affiché ici -->
+                <p id="calcul"><br></p>
+
+                <!-- Pour les quatres réponses possibles -->
+                <div id="reponses_qcm">
+                    <!-- id rX = reponse X -->
+                    <button id="r1" class="BoutonReponses"></button>
+                    <button id="r2" class="BoutonReponses"></button>
+                    <button id="r3" class="BoutonReponses"></button>
+                    <button id="r4" class="BoutonReponses"></button>
+                </div>
+
+                <br>
+                <br>
+                <!-- Le score -->
+                <p id="score">Score : 0 points</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

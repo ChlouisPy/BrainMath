@@ -1,0 +1,218 @@
+/* Pour changer la difficulte */
+#changer_niv {
+    margin-left: 1575px;
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #1f1f1f;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+}
+
+#changer_niv:hover {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+
+    background: linear-gradient(90deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Placement dans la fenetre */
+
+#fenetre {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 1250px;
+    height: 700px;
+
+    margin: 75px auto;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border: 4px solid #1f1f1f;
+}
+
+#fenetre_jeu {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 1100px;
+    height: 500px;
+    margin-left: 75px;
+    margin-top: 33px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border: 4px solid #1f1f1f;
+}
+
+/* Pour l'entête */
+
+#entete {
+    display: flex;
+    align-items: stretch;
+}
+
+.cerveau_image {
+    margin-left: 375px;
+    margin-top: 25px;
+    width: 40px;
+    height: 40px;
+}
+
+
+.titrelogo {
+    margin-top: 25px;
+    margin-left: 25px;
+    height: 30px;
+    width: 220px;
+}
+
+#fenetre_titre {
+
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 45px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: black;
+
+    margin-top: 25px;
+    margin-left: 225px;
+
+    color: white;
+}
+
+/* Pour le jeu */
+
+#question {
+    margin-top: 75px;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+/* Entre utilisateur */
+#entre_reponse {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border:0;
+    background: none;
+    display: block;
+    margin: 35px auto;
+    text-align: center;
+    border: 4px solid #3498db;
+    padding: 14px 10px;
+    width: 450px;
+    outline: none;
+    color: Black;
+    ont-weight: bold;
+    font-family: Arial Black;
+    font-size: 25px;
+    border-radius: 35px;
+    transition: 0.25s;
+
+    /* Pour faire disparaitre les petites flèches de l'entrée de nombre
+
+    sur firefox */
+    -moz-appearance: textfield;
+}
+
+/* sur chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+
+}
+
+/* Pour les bouttons d'envoie */
+
+#boutons_div {
+    display: flex;
+    align-items: stretch;
+    width: 550px;
+    margin-left: 275px;
+    margin-top: 50px;
+}
+
+.envoyerbtn {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    width: 200px;
+    height: 55px;
+    text-align: center;
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.75s;
+    font-family: Arial Black;
+
+    margin: 0 auto;
+
+}
+
+#envoyer_button {
+    background: rgba(255, 255, 255, 0.5);
+    border: 3.5px solid rgba(47, 206, 71, 0.5);
+}
+
+#ne_sais_pas {
+    background: rgba(255, 255, 255, 0.5);
+    border: 3.5px solid rgba(234, 23, 23, 0.5);
+}
+
+#envoyer_button:hover {
+    background: rgba(47, 206, 71, 0.3);
+    border: 4px solid rgba(47, 206, 71, 1);
+}
+
+#ne_sais_pas:hover {
+    background: rgba(234, 23, 23, 0.3);
+    border: 4px solid rgb(234, 23, 23);
+}
+
+/* animation pour faire trembler javascript l'active quand une réponse et mauvaise */
+@keyframes trembler {
+
+    10%, 90% {
+        border: 4px solid #EA1717;
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        border: 4px solid #EA1717;
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        border: 4px solid #EA1717;
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        border: 4px solid #EA1717;
+        transform: translate3d(4px, 0, 0);
+    }
+}

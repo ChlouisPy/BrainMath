@@ -1,0 +1,433 @@
+body {
+    background-color: white;
+    text-align: center;
+
+}
+
+/*Pour toutes les acceuils dans la liste d'acceuils */
+#ListeJeuxAcceuil {
+    height: 3400px;
+
+    background: linear-gradient(-45deg, #b300ff, #0093FF);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+
+/* Pour le logo complet juste après le menu */
+
+#LogoTitle {
+    width: 460px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+
+#LogoFrame {
+    padding: 25px;
+    padding-top: 75px;
+    padding-bottom: 30px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Pour les différents catégories de jeu*/
+#EntrainementAcceuil {
+    width: 99%;
+    height: 500px;
+    padding-top: 250px;
+    margin: auto;
+}
+
+
+#JeuAccueil {
+    width: 99%;
+    height: 500px;
+    padding-top: 250px;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+
+#QCMAcceuil {
+    width: 99%;
+    height: 500px;
+    padding-top: 250px;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+/* Pour le logo simple du jeu sur l'acceuil principale*/
+#Acceuil {
+    /*background: linear-gradient(90deg,#ff0000, #fbff00);;*/
+    background-color: white;
+    width: 99%;
+    height: 750px;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.logoacceuil {
+    width: 200px;
+    height: 200px;
+}
+
+.textbienvenue {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 50px;
+    background: linear-gradient(90deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#Presentation {
+    color: black;
+    font-family: Cambrila;
+    font-weight: bold;
+    font-size: 24px;
+    visibility: hidden;
+}
+
+#Bienvenue {
+    opacity: 0%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10%;
+    padding-right: 0%;
+
+}
+
+/* Pour remplire l'espace à la fin de la page pour éviter les bugs */
+#fin {
+    position: absolute;
+    color: white;
+    background: white;
+    height: 25px;
+    width: 80%;
+    margin-top: 750px;
+    margin-left: 10%;
+}
+
+/* Les boutons pour l'acceuil */
+.demarerbouton {
+
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 40px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: black;
+
+    border: 0;
+    transition: 0.25s;
+
+    text-decoration: none;
+
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+
+    padding: 14px 10px;
+    width: 500px;
+    color: #dedede;
+
+}
+
+.demarerbouton:hover {
+
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 50px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: black;
+
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+
+    padding: 14px 10px;
+    width: 500px;
+    color: white;
+
+    background: linear-gradient(90deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-decoration: none;
+
+
+}
+
+/* Pour les petites formes qui bougent en arrière plan*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.flocons {
+    top: 0;
+    left: 0;
+    width: 98%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.flocons li {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: #10afff;
+    border-radius: 5px;
+    animation: animationflocon 25s linear infinite;
+    bottom: -3235px;
+
+}
+
+/* Chaque petite bulle est gérée indépendament */
+/* Moyen */
+.flocons li:nth-child(1) {
+    left: 26%;
+    width: 81px;
+    height: 81px;
+    animation-delay: 3s;
+}
+
+/* Petit */
+.flocons li:nth-child(2) {
+    left: 11%;
+    width: 21px;
+    height: 21px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+/* Petit */
+.flocons li:nth-child(3) {
+    left: 71%;
+    width: 21px;
+    height: 21px;
+    animation-delay: 4s;
+}
+
+/* Moyen */
+.flocons li:nth-child(4) {
+    left: 41%;
+    width: 61px;
+    height: 61px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+/* Petit */
+.flocons li:nth-child(5) {
+    left: 66%;
+    width: 21px;
+    height: 21px;
+    animation-delay: 0s;
+}
+
+/* Gros */
+.flocons li:nth-child(6) {
+    left: 76%;
+    width: 111px;
+    height: 111px;
+    animation-delay: 3s;
+}
+
+/* Gros */
+.flocons li:nth-child(7) {
+    left: 31%;
+    width: 151px;
+    height: 151px;
+    animation-delay: 7s;
+}
+
+/* Petit */
+.flocons li:nth-child(8) {
+    left: 51%;
+    width: 26px;
+    height: 26px;
+    animation-delay: 5s;
+    animation-duration: 18s;
+}
+
+/* Petit */
+.flocons li:nth-child(9) {
+    left: 22%;
+    width: 17px;
+    height: 17px;
+    animation-delay: 2s;
+    animation-duration: 17s;
+}
+
+/* Gros */
+.flocons li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+/* Moyen */
+.flocons li:nth-child(11) {
+    left: 45%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 2s;
+}
+
+/* Petit */
+.flocons li:nth-child(12) {
+    left: 55%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 7s;
+    animation-duration: 12s;
+}
+
+/* Petit */
+.flocons li:nth-child(13) {
+    left: 28%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+/* créer l'annimation pour les flocon qui les faits touner, arondir et diapraitre*/
+
+@keyframes animationflocon {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.75;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-3950px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Style pour la bar de menu dans index
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ */
+
+#NavigationBarre
+{
+    position: sticky;
+    top: 0;
+
+    padding-top: 5px;
+    right: 0;
+    left: 0;
+    width: 319px;
+    display: table;
+    margin: 0 auto;
+    background-color: white;
+}
+
+#NavigationBarre a
+{
+    font-size: 18px;
+    white-space: nowrap;
+    position: relative;
+    width: 33.333%;
+    display: table-cell;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    font-family: Verdana;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: 0.2s ease color;
+}
+
+
+/* pour le petit slider blanc de base */
+#lignes
+{
+    position: absolute;
+    left: 4%;
+    bottom: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #00000000;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+}
+
+/* Pour faire changer et bouger le slider */
+#NavigationBarre a:hover
+{
+
+    text-decoration: none;
+
+    background: linear-gradient(to right, #b300ff, #0095ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#NavigationBarre a:nth-child(1):hover ~ #lignes
+{
+    width: 155px;
+    background: linear-gradient(90deg, #b200ff, #0093ff);
+}
+
+#NavigationBarre a:nth-child(2):hover ~ #lignes
+{
+    left: 44%;
+    width: 60px;
+    background: linear-gradient(90deg,#B200FF, #0093FF);
+}
+
+#NavigationBarre a:nth-child(3):hover ~ #lignes
+{
+    left: 67%;
+    width: 170px;
+    background: linear-gradient(90deg,#B200FF, #0093FF);
+
+}
+
+/* Petite boite autour du titre */
+.menubarreboite {
+    position: sticky;
+    top: 0;
+
+    /*width: 638px;*/
+    width: 99%;
+    height: 50px;
+
+    border: double 5px transparent;
+    border-radius: 10px;
+
+    background-image: linear-gradient(white, white), /* pour arrondire les*/
+    linear-gradient(to right, #b300ff, #0095ff);
+
+    border-image-slice: 1;
+
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+    margin: 0 auto;
+
+    background-color: white;
+
+    transition: 0.2s ease color;
+}

@@ -1,0 +1,56 @@
+body {
+    /*background: linear-gradient(90deg, #2FCE47, #FF8800, #EA1717);*/
+    background: linear-gradient(90deg, rgba(0, 147, 255, 0.5), rgba(25, 0, 255, 0.05));
+    background-size: 400% 400%;
+    animation: fondecran 15s ease infinite;
+}
+
+/* animation du fond de cette fenetre */
+@keyframes fondecran {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#menu {
+    margin-left: 50px;
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #1f1f1f;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+}
+
+#menu:hover {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+
+    background: linear-gradient(90deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

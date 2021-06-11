@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--QCM-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainMath</title>
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <link rel="stylesheet" href="styles/style_qcm.css"/>
+    <link rel="stylesheet" href="styles/style_partout.css"/>
+
+    <script src="scripts/generateur.js"></script>
+
+    <script>
+        // récupération de la difficulte et du mode passé en paramètre dans l'url
+        let adresse = (window.location.toString().split("?")[1]);
+        let difficulte = parseInt(adresse.split("&")[0].split("=")[1]);
+        let mode = parseInt(adresse.split("&")[1].split("=")[1]);
+
+        function couleur_cerveau() {
+            /*
+            Fonction qui en fonction de la difficulte va retrouner une couleur différente de cerveau
+            */
+            if (difficulte === 1) {
+                // si la difficulte est en mode simple retroune une image de cerveau vert
+                return "images/cerveau_vert.png";
+            } else if (difficulte === 2) {
+                // si la difficulte est moyen retourner l'image de cerveau orange
+                return "images/cerveau_orange.png";
+            } else if (difficulte === 3) {
+                // si la difficule est en difficile retoruner l'image de cerveau rouge
+                return "images/cerveau_rouge.png";
+            } else {
+                // si il y a une erreur dans la difficuler renvoyer l'utilisateur sur la page d'acceuil
+                window.location.replace("index.html");
+            }
+            ;
+        };
+
+        function changer_difficulte() {
+            /*
+            Fonction qui permet de retrouner à la page de la selection de la difficulte en ajoutant les paramètre (pour éviter les bugs)
+            :return: None
+            */
+            window.location.replace("difficulte.html?mode=" + (mode));
+        };
+
+        function verification() {
+            /* 
+            Fonction qui va lancer la vérification des réponses du QCM
+            :return: None
+            */
+            verification_qcm(difficulte);
+        };
+    </script>
+</head>
+
+<body>
+
+<!-- retour au menu -->
+<a id="menu" href="index.html">Menu</a>
+
+<!-- Bouton pour envoyer les réponses -->
+<div id="envoie_reponses" onclick="verification()">
+    <p id="envoie_text">Envoyer votre QCM</p>
+</div>
+
+<!-- Pour afficher le score à la fin -->
+<div id="score">
+    <!-- Indiquer la note au QCM -->
+    <p id="score_txt">Voici votre note :
+    <div id="note"> 0 / 10</div>
+    </p>
+    <br>
+    <br>
+    <br>
+    <!-- Pour le score sous forme de 5 petits cerveau (comme 5 étoiles) -->
+    <div id="score_cerveau">
+        <img src="images/cerveau_vert.png" class="cerveau_score" id="c5"/>
+        <img src="images/cerveau_vert.png" class="cerveau_score" id="c4"/>
+        <img src="images/cerveau_vert.png" class="cerveau_score" id="c3"/>
+        <img src="images/cerveau_vert.png" class="cerveau_score" id="c2"/>
+        <img src="images/cerveau_vert.png" class="cerveau_score" id="c1"/>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Pour indiquer à l'utilisateur son niveau -->
+    <div id="niveau">
+        <p id="niveau_text">Voici votre score : 0/30</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Pour changer de difficulte du jeu -->
+    <div id="changer_niveau" onclick="changer_difficulte()">
+        <p id="changer_niveau_text">Changer de difficulté</p>
+    </div>
+</div>
+
+
+<!-- Faire le site sous forme de plusieurs feuilles de papiers comme un devoir -->
+<div class="papier">
+
+    <div id="titre">
+        <img src="images/logo_title.png" class="titrelogo"/>
+        <img src="images/cerveau_vert.png" class="cerveau_image" id="cerveau"/>
+        <script>
+            // actualiser l'image de cerveau
+            document.querySelector("#cerveau").src = (couleur_cerveau());
+        </script>
+    </div>
+    <p id="qcm_title">QCM</p>
+    <div id="ligne_separation"></div>
+    <br>
+
+    <div id="Questionnaire">
+        <!-- Le QCM :
+        id : qX = question X et rXn = reponse à la question X numero n
+        class q = question
+        class r = reponse
+        class rl = reponses liste
+        id lXn = label question X reponse n
+        value reponsesXn = reponses de checkbox question X reponses n
+        
+        voir _ancien_qcm.html pour la structure de la grille
+        Javascript qui a été utilisé pour diminué le nombre de lignes
+        
+        -->
+        <script>
+            // contient toute la grille de qcm sous format de string pour être mis en document.write(total_qcm)
+            let total_qcm = "";
+            // ajouter la colone 1
+            total_qcm += '<div id="colone1"> <br>';
+            // pour chaque question (10)
+            for (let q = 0; q < 10; q++) {
+                // ajouter le text de la question
+                total_qcm += '<p id="q' + (q) + '" class="question"> #' + (q + 1) + ' : </p>';
+                // ajouter la div pour la liste de réponses
+                total_qcm += '<div class="rl">';
+                // pour chaque proposition
+                for (let p = 0; p < 4; p++) {
+                    // ajouter la div pour l'espacment
+                    total_qcm += '<div class="espace">';
+                    // calcule de l'id associé
+                    let id = (q).toString() + (p).toString();
+                    // ajouter la checkbox
+                    total_qcm += '<input type="checkbox" id="r' + id + '" class="reponsecheck">';
+                    // ajouter le label de la checkbox
+                    total_qcm += '<label for="r' + id + '" class="reponse" id="l' + id + '">0</label>';
+                    // fermer le div espace
+                    total_qcm += '</div>';
+                }
+                ;
+                // refermer le div rl
+                total_qcm += '</div>';
+                total_qcm += '<br><br>';
+                // si on est à la moitier du questionnaire ajouter la séparation et la nouvelle colone
+                if (q === 4) {
+                    // femer la colone
+                    total_qcm += '</div>';
+                    // ajouter la séparation
+                    total_qcm += '<div id="separe_colone"></div>';
+                    // commencer la nouvelle partie
+                    total_qcm += '<div id="colone2"> <br>';
+                }
+                ;
+            }
+            ;
+            total_qcm += '</div>'
+            // ecrire dans le doc à la fin
+            document.write(total_qcm);
+        </script>
+    </div>
+</div>
+
+<script>
+    // inserer les questions dans le QCM au démarage du QCM
+    demarage_qcm(difficulte)
+</script>
+
+</body>
+</html>

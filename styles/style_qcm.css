@@ -1,0 +1,284 @@
+/* pour l'entête */
+#titre {
+    display: flex;
+    align-items: stretch;
+}
+
+.cerveau_image {
+    margin-left: 325px;
+    width: 40px;
+    height: 40px;
+}
+
+
+.titrelogo {
+    height: 30px;
+    width: 220px;
+}
+
+#qcm_title {
+    text-align: center;
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+
+    color: white;
+}
+
+#ligne_separation {
+    position: absolute;
+    left: 25px;
+    width: 600px;
+    height: 3px;
+    background-color: #00000000;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+    background: black;
+}
+
+
+/* Pour faires l'empliement de feuile comme un qcm */
+
+.papier {
+    height: 850px;
+    width: 600px;
+
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 26px auto 0;
+    padding: 25px;
+    position: relative;
+}
+
+.papier:before, .papier:after, .papier::after {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    content: "";
+    height: 98%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.papier:before {
+    background: #fafafa;
+    left: -5px;
+    top: 4px;
+    transform: rotate(-2.4deg);
+}
+
+.papier:after {
+    background: #f6f6f6;
+    right: -3px;
+    top: 1px;
+    transform: rotate(2deg);
+}
+
+/* Pour les questions de qcm*/
+
+.question {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reponse {
+    white-space: nowrap;
+    font-family: Arial;
+    font-size: 18px;
+
+}
+
+/* séparation entre les deux colones*/
+#separe_colone {
+    position: absolute;
+    margin-left: 300px;
+    left: 25px;
+    width: 2px;
+    height: 700px;
+    background-color: #00000000;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+    background: black;
+
+}
+
+/* pour le questionnaire */
+
+#Questionnaire {
+    display: flex;
+    align-items: stretch;
+}
+
+.rl {
+    display: flex;
+    align-items: stretch;
+}
+
+#colone1 {
+    position: absolute;
+    max-width: 300px;
+}
+
+#colone2 {
+    position: absolute;
+    margin-left: 315px;
+    max-width: 300px;
+}
+
+/* Pour le bouton d'envoie du QCM */
+#envoie_reponses {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    margin-left: 1350px;
+    margin-top: 800px;
+    width: 400px;
+    height: 55px;
+    text-align: center;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border: 3.5px solid #ffffff;
+    transition: 0.75s;
+
+    font-family: Arial Black;
+}
+
+#envoie_reponses:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    margin-left: 1400px;
+    margin-top: 800px;
+    width: 310px;
+    height: 55px;
+    text-align: center;
+    border-radius: 40px;
+
+    background: linear-gradient(45deg, #b300ff80, #0093FF80);
+
+    border: 3.5px solid #ffffff;
+    transition: 0.75s;
+}
+
+/* Pour les checkboxs */
+.espace {
+    padding-left: 15px;
+}
+
+/* Pour les scores */
+#score {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+
+    position: fixed;
+    margin-left: 1350px;
+    margin-top: 100px;
+    width: 400px;
+    height: 600px;
+    text-align: center;
+    border-radius: 40px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border: 3.5px solid #ffffff;
+    transition: 0.75s;
+}
+
+#score_txt {
+    font-family: Arial Black;
+    font-size: 30px;
+
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.25px;
+    -webkit-text-stroke-color: black;
+}
+
+#note {
+    font-family: Arial Black;
+    background: linear-gradient(45deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-size: 50px;
+    animation: linera_gradiant_animation 5s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* Pour le score sous forme de point */
+
+#score_cerveau {
+    display: flex;
+    align-items: stretch;
+    text-align: center;
+}
+
+.cerveau_score {
+    visibility: hidden;
+    text-align: center;
+    padding-left: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+#c5 {
+    margin-left: 45px;
+}
+
+/* Bouton pour changer de niveau */
+#changer_niveau {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    width: 300px;
+    height: 55px;
+    text-align: center;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border: 3.5px solid #ffffff;
+    transition: 0.75s;
+    margin: 0 auto;
+    font-family: Arial Black;
+}
+
+#changer_niveau:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+    width: 225px;
+    height: 55px;
+    text-align: center;
+    border-radius: 40px;
+    margin: 0 auto;
+    background: linear-gradient(45deg, #b300ff80, #0093FF80);
+
+    border: 3.5px solid #ffffff;
+    transition: 0.75s;
+}
+
+/* Pour le niveau */
+#niveau_text {
+    font-family: Arial Black;
+    font-size: 28px;
+
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.75px;
+    -webkit-text-stroke-color: black;
+}

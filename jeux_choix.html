@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Choix du jeu -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainMath</title>
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <!-- Import de beaucoup de CSS et notamenet celui de difficulte car la forme du menu reste similaire -->
+    <link rel="stylesheet" href="styles/style_difficulte.css"/>
+    <link rel="stylesheet" href="styles/style_jeux_choix.css"/>
+    <link rel="stylesheet" href="styles/style_partout.css"/>
+
+    <script src="scripts/generateur.js"></script>
+
+    <script>
+        // récupération de la difficulte et le mode dans l'url
+        let adresse = (window.location.toString().split("?")[1]);
+        let difficulte = parseInt(adresse.split("&")[0].split("=")[1]);
+        let mode = parseInt(adresse.split("&")[1].split("=")[1]);
+
+        function couleur_cerveau() {
+            /*
+            Fonction qui en fonction de la difficulte va retrouner une couleur différente de cerveau
+            :return: None
+            */
+            if (difficulte === 1) {
+                // si la difficulte est en mode simple retroune une image de cerveau vert
+                return "images/cerveau_vert.png";
+            } else if (difficulte === 2) {
+                // si la difficulte est moyen retourner l'image de cerveau orange
+                return "images/cerveau_orange.png";
+            } else if (difficulte === 3) {
+                // si la difficule est en difficile retoruner l'image de cerveau rouge
+                return "images/cerveau_rouge.png";
+            } else {
+                // si il y a une erreur dans la difficuler renvoyer l'utilisateur sur la page d'acceuil
+                window.location.replace("index.html");
+            }
+            ;
+        };
+
+        function redirection(jeu) {
+            /*
+            fonction pour lancer l'un des deux jeux
+            :param jeu : 1 pour le mode de jeu 1 sinon l'autre mode de jeu
+            :return: None
+            */
+            if (jeu === 1) {
+                // lancer le jeu 1 avec la difficulte
+                window.location.replace("jeux.html?dif=" + difficulte +"&mode=2&jeu=1");
+            } else {
+                // lancer le mode de jeu 2
+                window.location.replace("jeux.html?dif=" + difficulte +"&mode=2&jeu=2");
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+<!-- Insipration et récupération principale sur le style css de difficulte.html -->
+<br>
+<a id="menu" href="index.html">Menu</a>
+<a id="changer_niv" href="difficulte.html?mode=2">Difficulté</a>
+
+<div id="principale">
+    <!-- Fenetre qui contient les titres et les choix des jeux -->
+    <div id="fenetre">
+        <!-- Image du cerveau en fonction de la difficulte -->
+        <img src="images/cerveau_vert.png" id="cerveau_difficulte"/>
+        <script>
+            // actualiser l'image de cerveau en fonction de la difficulte du jeu
+            document.querySelector("#cerveau_difficulte").src = (couleur_cerveau());
+        </script>
+        <!-- Entete avec le titre -->
+        <p id="text_jeu">Selection du jeu</p>
+        <!--Les deux choix de jeu-->
+        <nav id="choix_jeu">
+
+            <!-- Pour le choix du jeu 1 (time attack [Contre la montre])-->
+            <div class="niv" id="choix1" onclick="redirection(1)">
+                <!-- Indiquer le nom du jeu -->
+                <p class="jeutext" id="d1">Contre la <br> Montre</p>
+                <!-- mettre une image de cronos -->
+                <img src="images\time_attack_logo.png" class="logo_jeu"/>
+                <!-- Faire une petite présentation du jeu qui apparait si l'utilisateur reste suffisement de temps sur
+                le div -->
+                <div class="presentation" id="p1">
+                    <p class="textpresente"> Vous disposez de 60 secondes pour répondre aux plus de questions </p>
+                </div>
+            </div>
+
+            <!-- Pour le choix du jeu 2 (Plus grande distance) -->
+            <div class="niv" id="choix2" onclick="redirection(2)">
+
+                <p class="jeutext" id="d2">Plus grande <br> Distance</p>
+                <!-- mettre une petit image de fusée pour le mode plus grande distance -->
+                <img src="images\fusee.png" class="logo_jeu"/>
+
+                <div class="presentation" id="p2">
+                    <p class="textpresente">Vous devez répondre aux plus de questions, la moindre erreur est fatale</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

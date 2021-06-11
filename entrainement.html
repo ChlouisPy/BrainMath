@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--Entrainement au calcul mentale -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainMath</title>
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <link rel="stylesheet" href="styles/style_entrainement.css"/>
+    <link rel="stylesheet" href="styles/style_partout.css"/>
+
+    <script src="scripts/generateur.js"></script>
+
+    <script language="JavaScript">
+        // Récupération des arguments
+        let adresse = (window.location.toString().split("?")[1]);
+        let difficulte = parseInt(adresse.split("&")[0].split("=")[1]);
+        let mode = parseInt(adresse.split("&")[1].split("=")[1]);
+
+        function couleur_cerveau() {
+            /*
+            Fonction qui en fonction de la difficulte va retrouner une couleur différente de cerveau
+            :return: None
+            */
+            if (difficulte === 1) {
+                // si la difficulte est en mode simple retroune une image de cerveau vert
+                return "images/cerveau_vert.png";
+            } else if (difficulte === 2) {
+                // si la difficulte est moyen retourner l'image de cerveau orange
+                return "images/cerveau_orange.png";
+            } else if (difficulte === 3) {
+                // si la difficule est en difficile retoruner l'image de cerveau rouge
+                return "images/cerveau_rouge.png";
+            } else {
+                // si il y a une erreur dans la difficuler renvoyer l'utilisateur sur la page d'acceuil
+                window.location.replace("index.html");
+            }
+            ;
+        };
+    </script>
+</head>
+
+<body>
+<!-- Retour au menu -->
+<a id="menu" href="index.html">Menu</a>
+<a id="changer_niv" href="difficulte.html?mode=1">Difficulté</a>
+<!-- Fenetre principale-->
+<div id="fenetre">
+    <!-- l'entete qui contient le logo de brainMath, le titre entrainement et un cerveau de la couleur de la ddifficulte
+     -->
+    <div id="entete">
+        <img src="images/logo_title.png" class="titrelogo"/>
+        <p id="fenetre_titre">Entrainement</p>
+        <img src="images/cerveau_vert.png" class="cerveau_image" id="cerveau"/>
+        <!-- Changer l'image de cerveau en fonction de la dddifficulte -->
+        <script>
+            // actualiser l'image de cerveau
+            document.querySelector("#cerveau").src = (couleur_cerveau());
+        </script>
+    </div>
+
+    <!-- Fenetre du jeu-->
+    <div id="fenetre_jeu">
+        <!-- La valeur dde ce h1 sera changé en fonction ddes calcules affichés -->
+        <h1 id="question">Vide</h1>
+
+        <!-- Inserer le calcul en fonction de la difficulte à l'ouverture de la page -->
+        <script>
+            inserer_calcul(difficulte)
+        </script>
+        <!-- mettre une entrée qui ne peut contenir que des nombres comprit entre 0 et 1 milliard -->
+        <input type="number" min="0" max="1000000000" id="entre_reponse">
+        <!-- petit cadre pour des deux seuls boutons du jeu -->
+        <div id="boutons_div">
+            <!-- Un bouton si le jour ne sait la réponses au calcule -->
+            <div id="ne_sais_pas" class="envoyerbtn" onclick="inserer_calcul(difficulte)">
+                <p>Passer</p>
+            </div>
+            <!-- Un bouton pour envoyer la réponse (à noter que si l'entrée est vide ce bouton sert à passer) -->
+            <div id="envoyer_button" class="envoyerbtn" onclick="verifier_calcul()">
+                <p >Verifier</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

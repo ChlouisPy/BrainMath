@@ -1,0 +1,215 @@
+#principale {
+
+    text-align: center;
+    padding-top: 110px;
+}
+
+/* fenetre avec les choix des jeux */
+
+#fenetre {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    bottom: 250%;
+    width: 1100px;
+    height: 695px;
+
+    margin: 0 auto;
+    border-radius: 25px;
+
+    background: white;
+
+    border: 4px solid #1f1f1f;
+
+}
+
+#text_jeu {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 40px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: #1f1f1f;
+
+    text-align: center;
+    color: white;
+
+    transition: 0.5s;
+
+}
+
+#choix_jeu {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Pour faire changer chaque petite fenetre */
+.niv {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    height: 515px;
+
+    margin: 0 auto;
+    border-radius: 25px;
+
+    background: transparent;
+
+    border: 3.5px solid #1f1f1f;
+    transition: 0.5s;
+
+
+}
+
+.niv:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    height: 515px;
+
+    margin: 0 auto;
+    border-radius: 40px;
+
+    transition: 0.5s;
+
+    border: 3.5px solid #3498db;
+    background: #3498db10;
+    transition: 0.5s;
+
+}
+
+.jeutext {
+
+    text-align: center;
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 35px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.25px;
+    -webkit-text-stroke-color: black;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+
+
+/* Pour chaque choix changer la couleur du text on hover*/
+
+.niv:hover .jeutext {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 40px;
+    background: white;
+
+    text-align: center;
+    color: white;
+
+    transition: 0.5s;
+
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 2.25px;
+    -webkit-text-stroke-color: black;
+
+    text-decoration: none;
+
+    background: #3498db;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: 0.5s;
+
+}
+
+/* Pour les icones du jeu */
+
+.logo_jeu {
+    margin-top: 100px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+}
+
+.niv:hover .logo_jeu {
+    margin-top: 50px;
+    width: 125px;
+    height: 125px;
+    transition: 0.5s;
+}
+
+.presentation {
+    margin-top: 100px;
+    visibility: hidden;
+    transition: 0.25s;
+    height: 0px;
+
+    margin: 0 auto;
+    border-radius: 40px;
+    border: 3.5px solid transparent;
+
+}
+
+/* pour faire apparaitre les petites présenations */
+.niv:hover .presentation {
+    margin-top: 70px;
+    visibility: visible;
+    transition: 0.25s;
+    transition-delay: 1.25s;
+
+    border: 3.5px solid transparent;
+    width: 290px;
+    height: 95px;
+    background: transparent;
+
+}
+
+/* Pour changer la difficulte */
+#changer_niv {
+    margin-left: 1575px;
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #1f1f1f;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+}
+
+#changer_niv:hover {
+    white-space: nowrap;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+
+    text-align: center;
+    color: white;
+
+    text-decoration: none;
+
+    background: linear-gradient(90deg, #b300ff, #0093FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Pour le cerveau indicant la difficulte dans le choix de la difficulte */
+#cerveau_difficulte {
+    position: fixed;
+    margin-top: 25px;
+    margin-left: 475px;
+    width: 50px;
+    height: 50px;
+}

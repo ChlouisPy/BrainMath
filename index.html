@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <title>BrainMath</title>
+    <meta charset="utf-8"/>
+    <!--CSS-->
+    <link rel="stylesheet" href="styles/style_acceuil.css"/>
+
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <script src="scripts/scriptindex.js"></script>
+
+</head>
+
+<body>
+
+<!--Bar de menu pour la page d'acceuille, les 3 jeu et les infos-->
+<div class="menubarreboite">
+
+    <!-- Bare de navigation-->
+    <nav id="NavigationBarre">
+
+        <a href="difficulte.html?mode=1">ENTRAINEMENT</a>
+        <a href="difficulte.html?mode=2">&emsp;&emsp;JEUX&emsp;&emsp;</a>
+        <a href="difficulte.html?mode=3">QUESTIONNAIRE</a>
+        <div id="lignes"></div>
+    </nav>
+
+</div>
+
+
+<!-- logo -->
+<div id="LogoFrame">
+    <img src="images\logo_title.png" id="LogoTitle"/>
+</div>
+
+<!-- Pour le logo -->
+<div id="Acceuil">
+
+    <!-- Le signe de bienvenue qui apparait et disparait au scoll avec le texte  -->
+    <div id="Bienvenue">
+        <img src="images/logo.png" class="logoacceuil"/>
+
+        <p class="textbienvenue">
+            Bienvenue sur BrainMath
+        </p>
+    </div>
+</div>
+
+<!--
+    TOUS LES JEUX
+    Pour chaque url de redicrection un pramètre est ajouté
+    mode =
+    1 : Entrainement
+    2 : Jeux
+    3 : QCM
+
+-->
+
+<!--Pour le mode entrainement-->
+<div id="EntrainementAcceuil">
+    <div class="menudemarer">
+        <img src="images/entrainement_logo.png" class="logoacceuil"/>
+        <!--Bouton pour démarer le mode entrainement-->
+        <a class="demarerbouton" href="difficulte.html?mode=1">Entrainement</a>
+    </div>
+</div>
+
+<!-- Pour le mode time attaque -->
+<div id="JeuAccueil">
+    <div class="menudemarer">
+        <img src="images/de.png" class="logoacceuil"/>
+
+        <a class="demarerbouton" href="difficulte.html?mode=2">Jeux</a>
+    </div>
+</div>
+<!-- Pour le mode QCM-->
+<div id="QCMAcceuil">
+    <div class="menudemarer">
+        <img src="images/qcm_logo.png" class="logoacceuil"/>
+
+        <a class="demarerbouton" href="difficulte.html?mode=3">QCM</a>
+    </div>
+</div>
+
+
+<!-- Pour faire les flocons qui montent -->
+<div>
+    <ul class="flocons" style="height: 250px;">
+        <!-- Chaque li correspond à un flocon -->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<!-- Ce div ne sert qu'a éviter un bug de scroll-->
+<div id="fin">
+</div>
+
+</body>
+</html>

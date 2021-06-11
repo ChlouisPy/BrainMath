@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Page pour la selection de la difficulté -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainMath</title>
+    <link rel="icon" type="image/gif/png" href="ico.ico">
+
+    <link rel="stylesheet" href="styles/style_difficulte.css"/>
+    <link rel="stylesheet" href="styles/style_partout.css"/>
+
+    <script>
+        // Recuperation du mode de jeu 1, 2 ou 3
+        let mode = parseInt(window.location.toString().split("?")[1].split("=")[1]);
+
+        function demarrer_jeu(difficulte) {
+            /*
+            cette fonction démarer le bon jeu correspondant à mode et selectionne le bon niveau qui dépend du
+            clic de l'utilisateur
+            param: difficulte : correpond à la difficulte du jeu lancé, 1 etant le plus facile et 3 le plus difficile
+            :return: None
+            */
+            if (mode === 1) {
+                // si le mode est 1 envoyer en entrainement avec en parametre la difficulte
+                window.location.replace("entrainement.html?dif=" + (difficulte) + "&mode=" + (mode));
+
+            } else if (mode === 2) {
+                // si le mode est 2 envoyer en time attack avec en parametre la difficulte
+                window.location.replace("jeux_choix.html?dif=" + (difficulte) + "&mode=" + (mode));
+
+            } else if (mode === 3) {
+                // si le mode est 3 envoyer en qcm avec en parametre la difficulte
+                window.location.replace("qcm.html?dif=" + (difficulte) + "&mode=" + (mode));
+            } else {
+                // dans le cas ou il y aurait un problème dans les arguments de mode r'envoyer en page d'acceuil
+                window.location.replace("index.html");
+            }
+            ;
+        };
+    </script>
+</head>
+
+
+<body>
+<br>
+<a id="menu" href="index.html">Menu</a>
+<!-- Fenetre principale dans laquelle se trouve tous les element sauf reour au menu -->
+<div id="principale">
+    <!-- Fenetre de choix des difficultes -->
+    <div id="fenetre">
+        <!-- Titre du choix de la difficulte -->
+        <p id="text_difficulte">Sélection de la difficulté</p>
+
+        <!-- les trois choix de difficulte, facile, moyen ety difficile -->
+        <nav id="choix_difficulte">
+
+            <!-- Pour le mode facile -->
+            <div class="niv" id="n1" onclick="demarrer_jeu(1)">
+
+                <!-- titre du mode de difficulte -->
+                <p class="difficultetext" id="d1">Facile</p>
+                <!-- Image de petit cerveau en fonction de la difficulte -->
+                <img src="images\cerveau_vert.png" class="cerveau_image" id="cerveau_vert"/>
+
+                <!--
+                Présentation briève de la difficulte qui apparait quand l'utilisateur reste longtemps sur
+                l'icon
+                -->
+                <div class="presentation" id="p1">
+                    <p class="textpresente">Le mode de jeu facile comprend des calculs avec deux entiers simples ainsi que des
+                        opérateurs simples </p>
+                </div>
+
+            </div>
+
+            <!-- Pour le mode moyen -->
+            <div class="niv" id="n2" onclick="demarrer_jeu(2)">
+
+                <p class="difficultetext" id="d2">Moyen</p>
+                <img src="images\cerveau_orange.png" class="cerveau_image" id="cerveau_orange"/>
+
+                <div class="presentation" id="p2">
+                    <p class="textpresente">Le mode de jeu moyen comprend des calculs avec deux entiers ainsi que des
+                        opérateurs simples </p>
+                </div>
+
+            </div>
+
+            <!-- Pour le mode difficile -->
+            <div class="niv" id="n3" onclick="demarrer_jeu(3)">
+
+                <p class="difficultetext" id="d3">Difficile</p>
+                <img src="images\cerveau_rouge.png" class="cerveau_image" id="cerveau_rouge"/>
+
+                <div class="presentation" id="p3">
+                    <p class="textpresente">Le mode de jeu difficile comprend des calculss avec trois entiers ainsi que des
+                        opérateurs simples et des parenthèses </p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+</body>
+
+</html>
